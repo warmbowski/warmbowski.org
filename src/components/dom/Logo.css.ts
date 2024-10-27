@@ -22,7 +22,7 @@ export const circle = style({
   height: '250px',
   justifyContent: 'center',
   borderRadius: '50%',
-  backgroundColor: '#ffc971',
+  backgroundColor: '#0899BA',
   willChange: 'transform',
   transition: 'transform 300ms',
   selectors: {
@@ -32,9 +32,17 @@ export const circle = style({
   },
 })
 
-export const w = style({
-  position: 'relative',
-  top: '1em',
-  fontSize: '3em',
-  filter: 'drop-shadow(4px 4px #cc5803)',
+// export const w = style({
+//   position: 'relative',
+//   top: '1em',
+//   fontSize: '3em',
+//   filter: 'drop-shadow(4px 4px #cc5803)',
+// })
+
+export const avatar = style({
+  position: 'absolute',
+  width: '230px',
+  height: '230px',
+  borderRadius: '50%',
+  objectFit: 'cover',
 })
