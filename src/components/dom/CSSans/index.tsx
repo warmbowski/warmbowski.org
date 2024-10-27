@@ -1,4 +1,4 @@
-import './cssans.css'
+import './styles.css'
 
 export function CSSansWord({ word = '' }: { word: string }) {
   return (
