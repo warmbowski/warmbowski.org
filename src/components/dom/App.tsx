@@ -1,18 +1,29 @@
+import { useAtom } from 'jotai'
 import { animated, useSpring } from '@react-spring/web'
 import reactLogo from '../../assets/react.svg'
 import viteLogo from '../../assets/vite.svg'
 import { Hero } from '../canvas/Hero.tsx'
 import * as styles from './App.css.ts'
 import { doNotAnimateHero, vhToPixel } from '../../utils.ts'
+import { heroAnimateStatusAtom } from '../../app-state/index.ts'
+import { Logo } from './Logo.tsx'
+import { GeometricName } from './Name.tsx'
 
 function App() {
+  const [, setAnimateStatus] = useAtom(heroAnimateStatusAtom)
   const animateHeight = useSpring({
     from: { height: vhToPixel(100, true) },
     to: { height: '400px' },
     delay: 2000,
+    cancel: doNotAnimateHero,
+    onStart: () => {
+      setAnimateStatus('started')
+    },
     onRest: (e) => {
       if (e.finished === true) {
-        console.error('Animation finished')
+        setTimeout(() => {
+          setAnimateStatus('completed')
+        }, 2000)
       }
     },
     config: { tension: 280, friction: 120 },
@@ -24,8 +35,11 @@ function App() {
         className={styles.hero}
         style={!doNotAnimateHero ? animateHeight : undefined}
       >
-        <Hero />
+        <div className={styles.heroBackground} />
+        <Logo />
+        <GeometricName />
       </animated.div>
+      <Hero />
       <div className={styles.content}>
         <div>
           <a href="https://vitejs.dev" target="_blank">

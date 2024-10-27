@@ -18,11 +18,8 @@ import {
   siTypescript,
   siVite,
 } from 'simple-icons'
-import { Center, Environment, Lightformer } from '@react-three/drei'
+import { Environment, Lightformer } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import { Physics } from '@react-three/rapier'
-import { TetherObject } from './TetherObject'
-import { Name, Title } from './Name'
 import { IconCarousel } from './Carousel'
 
 export function Hero() {
@@ -30,46 +27,31 @@ export function Hero() {
     <Canvas>
       <orthographicCamera position={[0, 0, 15]} />
       <ambientLight intensity={Math.PI} />
-      <Physics
-        debug={false}
-        interpolate
-        gravity={[0, -40, 0]}
-        timeStep={1 / 60}
-      >
-        <group position={[0, 3, -5]}>
-          <Center>
-            <Name />
-          </Center>
-        </group>
-        <TetherObject position={[0, 3.7, -2]}>
-          <Title />
-        </TetherObject>
-        <IconCarousel
-          position={[0, -1.2, -5]}
-          radius={11}
-          scale={0.6}
-          icons={[
-            siJavascript,
-            siTypescript,
-            siReact,
-            siMui,
-            siCss3,
-            siHtml5,
-            siThreedotjs,
-            siGraphql,
-            siVite,
-            siNodedotjs,
-            siNpm,
-            siMeteor,
-            siPostgresql,
-            siMongodb,
-            siGithub,
-            siGitlab,
-            siDocker,
-            siKubernetes,
-          ]}
-        />
-      </Physics>
+      <IconCarousel
+        position={[0, -1.2, -5]}
+        radius={11}
+        scale={0.6}
+        icons={[
+          siJavascript,
+          siTypescript,
+          siReact,
+          siMui,
+          siCss3,
+          siHtml5,
+          siThreedotjs,
+          siGraphql,
+          siVite,
+          siNodedotjs,
+          siNpm,
+          siMeteor,
+          siPostgresql,
+          siMongodb,
+          siGithub,
+          siGitlab,
+          siDocker,
+          siKubernetes,
+        ]}
+      />
       <Environment background blur={0.75}>
         <Lightformer
           intensity={2}

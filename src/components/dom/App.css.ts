@@ -1,14 +1,16 @@
 import { style } from '@vanilla-extract/css'
 
 export const hero = style({
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
   width: '100vw',
   height: 400,
   maxHeight: '100vh',
   minHeight: 400,
-  background:
-    'transparent url("http://www.warmbowski.org/images/mute_rainbow_header.jpg") 0 0 no-repeat fixed',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
+  backgroundColor: 'transparent',
   marginTop: '4em',
   marginBottom: '3em',
   '@media': {
@@ -17,6 +19,23 @@ export const hero = style({
       minHeight: 200,
     },
   },
+})
+
+export const heroBackground = style({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  backgroundImage:
+    'url("https://assets.wfcdn.com/im/84268766/resize-h445%5Ecompr-r85/1639/163945024/Ahriella+126%22+L+x+24%22+W+Peel+and+Stick+Wallpaper+Roll.jpg")',
+  backgroundColor: 'transparent',
+  backgroundRepeat: 'repeat',
+  backgroundPosition: '0 0',
+  opacity: 0.2,
+  width: '100%',
+  height: '100%',
+  zIndex: -1,
 })
 
 export const content = style({
